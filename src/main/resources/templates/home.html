@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Dota 2 Профиль</title>
+  <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<div class="home-container">
+  <h1>Добро пожаловать в Dota 2 Статистику</h1>
+  <p class="subtitle">Введите Steam Account ID, чтобы посмотреть профиль игрока</p>
+
+  <form th:action="@{/dota/player/view/}" method="get" class="search-form">
+    <label>
+      <input type="text" name="accountId" placeholder="Например, 86745912" required>
+    </label>
+    <button type="submit">Показать профиль</button>
+  </form>
+</div>
+</body>
+</html>
