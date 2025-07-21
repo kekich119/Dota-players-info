@@ -18,11 +18,15 @@
     </p>
     <p><strong>Account ID:</strong> <span th:text="${player.profile.account_id}"></span></p>
     <p><strong>Rank-tier:</strong> <span th:text="${player.rank_tier}">-</span></p>
-    <p><strong>Wins:</strong> <span th:text="${player.win}">-</span></p>
-
-
-
-
+    <p><strong> <span style="color: green; "> Wins:</span> </strong> <span th:text="${winrate.win}">-</span></p>
+    <p><strong><span style="color: #940909">Losses:</span></strong> <span th:text="${winrate.lose}">-</span></p>
+    <p><strong> <span style="color: orange">Winrate:</span></strong> <span
+            th:text="${#numbers.formatDecimal((winrate.win * 1.0 / (winrate.win + winrate.lose)) * 100, 1, 2)} + '%'"></span>
+    </p>
+    <p><strong><span style="color: #940909">Hero:</span></strong>
+        <span th:each="hero : ${heroPeak}"
+        th:text="${hero.hero_id} +', ' "></span>
+        </p>
 
 
 

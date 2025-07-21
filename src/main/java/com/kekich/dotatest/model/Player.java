@@ -8,4 +8,7 @@ public class Player {
     private Integer rank_tier;
     private Integer account_id;
     private Integer win;
+    private Integer lose;
+    private Integer hero_id;
+
 }
