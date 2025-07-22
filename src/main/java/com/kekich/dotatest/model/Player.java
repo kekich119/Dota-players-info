@@ -9,6 +9,5 @@ public class Player {
     private Integer account_id;
     private Integer win;
     private Integer lose;
-    private Integer hero_id;
 
 }

@@ -23,10 +23,13 @@
     <p><strong> <span style="color: orange">Winrate:</span></strong> <span
             th:text="${#numbers.formatDecimal((winrate.win * 1.0 / (winrate.win + winrate.lose)) * 100, 1, 2)} + '%'"></span>
     </p>
-    <p><strong><span style="color: #940909">Hero:</span></strong>
-        <span th:each="hero : ${heroPeak}"
-        th:text="${hero.hero_id} +', ' "></span>
-        </p>
+
+
+    <h2>Матчи игрока</h2>
+
+    <p><strong>Самый частый герой:</strong> <span th:text="${mostPickedHeroName}"></span></p>
+    kills
+    deaths
 
 
 
