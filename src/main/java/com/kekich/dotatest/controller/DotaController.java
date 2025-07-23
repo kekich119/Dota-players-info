@@ -42,8 +42,6 @@ public class DotaController {
         int mostPickedHero = Integer.parseInt(Collections.max(pickCount.entrySet(),
                 Map.Entry.comparingByValue()).getKey());
 
-        int mostPickedHeroId = Integer.parseInt(Collections.max(pickCount.entrySet(),
-                Map.Entry.comparingByValue()).getKey());
 
         String mostPickedHeroName = heroNames.get(mostPickedHero);
 

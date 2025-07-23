@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация об игроке</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<h1>Профиль игрока</h1>
+
+<div class="card">
+    <img th:src="${player.profile.avatarfull}" alt="Аватар игрока" class="avatar">
+    <h2 th:text="${player.profile.personaname}">Имя игрока</h2>
+
+    <p><strong>Steam:</strong>
+        <a th:href="'https://steamcommunity.com/profiles/' + ${player.profile.steamid}"
+           th:text="${player.profile.steamid}" target="_blank">Профиль</a>
+    </p>
+    <p><strong>Account ID:</strong> <span th:text="${player.profile.account_id}"></span></p>
+    <p><strong>Rank-tier:</strong> <span th:text="${player.rank_tier}">-</span></p>
+    <p><strong> <span style="color: green; "> Wins:</span> </strong> <span th:text="${winrate.win}">-</span></p>
+    <p><strong><span style="color: #940909">Losses:</span></strong> <span th:text="${winrate.lose}">-</span></p>
+    <p><strong> <span style="color: orange">Winrate:</span></strong> <span
+            th:text="${#numbers.formatDecimal((winrate.win * 1.0 / (winrate.win + winrate.lose)) * 100, 1, 2)} + '%'"></span>
+    </p>
+
+
+    <h2>Матчи игрока</h2>
+
+    <p><strong>Самый частый герой:</strong> <span th:text="${mostPickedHeroName}"></span></p>
+    kills
+    deaths
+
+
+
+</div>
+</body>
+</html>
