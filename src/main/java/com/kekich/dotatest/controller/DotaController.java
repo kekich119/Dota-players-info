@@ -53,12 +53,10 @@ public class DotaController {
         if (!pickCount.isEmpty()) {
             mostPickedHeroId = Collections.max(pickCount.entrySet(), Map.Entry.comparingByValue()).getKey();
             mostPickedHeroName = heroNames.getOrDefault(mostPickedHeroId, "Неизвестный герой");
+        } else {
+            mostPickedHeroId = -1;
+            mostPickedHeroName = "Недостаточно данных";
         }
-
-         mostPickedHeroId = Collections.max(pickCount.entrySet(), Map.Entry.comparingByValue()).getKey();
-
-
-        mostPickedHeroName = heroNames.get(mostPickedHeroId);
 
         System.out.println(mostPickedHeroName);
 
