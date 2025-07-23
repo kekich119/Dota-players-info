@@ -43,9 +43,7 @@ h1 {
     transition: box-shadow 0.5s ease;
 }
 
-.card:hover {
-    transform: scale(1.02);
-}
+
 
 /* === Аватар === */
 .avatar {
@@ -157,4 +155,22 @@ strong {
     100% {
         box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
     }
+}
+
+.home-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 24px;
+    background-color: #d4af37;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.home-button:hover {
+    background-color: #eec84a;
+    transform: scale(1.05);
 }
