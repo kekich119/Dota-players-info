@@ -46,10 +46,19 @@ public class DotaController {
             }
         }
 
-        int mostPickedHeroId = Collections.max(pickCount.entrySet(), Map.Entry.comparingByValue()).getKey();
+
+        int mostPickedHeroId = -1;
+        String mostPickedHeroName = "Недостаточно данных";
+
+        if (!pickCount.isEmpty()) {
+            mostPickedHeroId = Collections.max(pickCount.entrySet(), Map.Entry.comparingByValue()).getKey();
+            mostPickedHeroName = heroNames.getOrDefault(mostPickedHeroId, "Неизвестный герой");
+        }
+
+         mostPickedHeroId = Collections.max(pickCount.entrySet(), Map.Entry.comparingByValue()).getKey();
 
 
-        String mostPickedHeroName = heroNames.get(mostPickedHeroId);
+        mostPickedHeroName = heroNames.get(mostPickedHeroId);
 
         System.out.println(mostPickedHeroName);
 
