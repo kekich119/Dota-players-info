@@ -29,14 +29,15 @@ public class DotaController {
         Player player = dotaServie.getPlayerInfo(accountId);
         Player winrate = dotaServie.getWinLoseInfo(accountId);
         List<HeroesPeak> picks = dotaServie.getHeroPeakInfo(accountId);
-        Map<Integer,String> heroNames = dotaServie.getHeroIdToNameMap();
+        Map<Integer, String> heroNames = dotaServie.getHeroIdToNameMap();
 
 
-        Map<String,Integer> pickCount = new HashMap<>();
+        Map<String, Integer> pickCount = new HashMap<>();
 
-        for (HeroesPeak hero : picks){
+        for (HeroesPeak hero : picks) {
             int heroId = hero.getHero_id(); // допустим, у тебя есть метод getHeroId()
-            pickCount.put(String.valueOf(heroId), pickCount.getOrDefault(heroId, 0) + 1);        }
+            pickCount.put(String.valueOf(heroId), pickCount.getOrDefault(heroId, 0) + 1);
+        }
 
         int mostPickedHero = Integer.parseInt(Collections.max(pickCount.entrySet(),
                 Map.Entry.comparingByValue()).getKey());
@@ -47,8 +48,6 @@ public class DotaController {
         String mostPickedHeroName = heroNames.get(mostPickedHero);
 
         System.out.println("Самый пикаемый герой: " + mostPickedHero);
-
-
 
 
         model.addAttribute("player", player);
