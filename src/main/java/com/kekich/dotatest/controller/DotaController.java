@@ -32,22 +32,28 @@ public class DotaController {
         Map<Integer, String> heroNames = dotaServie.getHeroIdToNameMap();
 
 
+
+
         Map<Integer, Integer> pickCount = new HashMap<>();
 
-        for (HeroesPeak hero : picks) {
-            int heroId = hero.getHero_id();
-            int games = hero.getGames(); // ❗ вот это важно — считаем игры
-            if (games > 0) {
-                pickCount.put(heroId, games); // кладем сразу сколько игр, а не просто наличие
+        List<Map<String, Object>> recentMatches = dotaServie.getLastMatches(accountId, 20);
+
+
+        for (Map<String, Object> match : recentMatches) {
+            Integer heroId = (Integer) match.get("hero_id");
+            if (heroId != null) {
+                pickCount.put(heroId, pickCount.getOrDefault(heroId, 0) + 1);
             }
         }
 
-        int mostPickedHeroId = Collections.max(pickCount.entrySet(),
-                Map.Entry.comparingByValue()).getKey();
+        int mostPickedHeroId = Collections.max(pickCount.entrySet(), Map.Entry.comparingByValue()).getKey();
+
 
         String mostPickedHeroName = heroNames.get(mostPickedHeroId);
 
         System.out.println(mostPickedHeroName);
+
+
 
         model.addAttribute("player", player);
         model.addAttribute("winrate", winrate);

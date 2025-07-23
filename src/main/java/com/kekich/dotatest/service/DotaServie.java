@@ -55,6 +55,13 @@ public class DotaServie {
     }
 
 
+    public List<Map<String, Object>> getLastMatches(long accountId, int count) {
+        String url = "https://api.opendota.com/api/players/" + accountId + "/matches?limit=" + count;
+        ResponseEntity<List> response = restTemplate.getForEntity(url, List.class);
+        return response.getBody();
+    }
+
+
 
 
 }
