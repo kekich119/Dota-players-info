@@ -1,7 +1,6 @@
 /* styles.css */
 
 
-
 /* === Базовые стили === */
 * {
     box-sizing: border-box;
@@ -97,9 +96,6 @@ strong {
         font-size: 1.4rem;
     }
 }
-
-
-
 
 
 .home-container {
