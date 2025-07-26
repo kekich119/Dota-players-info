@@ -1,8 +1,9 @@
 com/kekich/dotatest/service/DotaServie.class
 com/kekich/dotatest/model/HeroesPeak.class
-com/kekich/dotatest/DotaTestApplication.class
-com/kekich/dotatest/controller/HomeController.class
 com/kekich/dotatest/model/Hero.class
 com/kekich/dotatest/controller/DotaController.class
 com/kekich/dotatest/model/Profile.class
 com/kekich/dotatest/model/Player.class
+com/kekich/dotatest/DotaTestApplication.class
+com/kekich/dotatest/controller/HomeController.class
+com/kekich/dotatest/service/ParserService.class

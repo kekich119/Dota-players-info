@@ -4,14 +4,13 @@ package com.kekich.dotatest.controller;
 import com.kekich.dotatest.model.HeroesPeak;
 import com.kekich.dotatest.model.Player;
 import com.kekich.dotatest.service.DotaServie;
+import com.kekich.dotatest.service.ParserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
@@ -19,19 +18,20 @@ import java.util.stream.Collectors;
 public class DotaController {
 
     private final DotaServie dotaServie;
+    private final ParserService parserService;
 
-    public DotaController(DotaServie dotaServie) {
+    public DotaController(DotaServie dotaServie, ParserService parserService) {
         this.dotaServie = dotaServie;
+        this.parserService = parserService;
     }
 
     @GetMapping("/player/view/")
     public String viewPlayer(@RequestParam("accountId") long accountId, Model model) {
+
         Player player = dotaServie.getPlayerInfo(accountId);
         Player winrate = dotaServie.getWinLoseInfo(accountId);
         List<HeroesPeak> picks = dotaServie.getHeroPeakInfo(accountId);
         Map<Integer, String> heroNames = dotaServie.getHeroIdToNameMap();
-
-
 
 
         Map<Integer, Integer> pickCount = new HashMap<>();
@@ -61,7 +61,6 @@ public class DotaController {
         System.out.println(mostPickedHeroName);
 
 
-
         model.addAttribute("player", player);
         model.addAttribute("winrate", winrate);
 
@@ -71,4 +70,15 @@ public class DotaController {
 
         return "player-info";
     }
+
+
+    @GetMapping("/facet/")
+    public String viewFacet(@RequestParam("hero") String hero, Model model) throws IOException, InterruptedException {
+        List<String> facets;
+        facets = parserService.getAspect("https://www.dotabuff.com/heroes/" + hero);
+        model.addAttribute("hero", facets);
+        return "hero-facet";
+    }
+
+
 }

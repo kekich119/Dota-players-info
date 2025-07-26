@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Аспекты героя</title>
+  <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<div class="card">
+  <h1>Аспекты героя</h1>
+
+  <table class="teachers-table">
+    <tbody>
+    <tr th:each="facet : ${hero}">
+      <td th:text="${facet}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <a th:href="@{/home}" class="home-button">На главную</a>
+
+
+</div>
+</body>
+</html>
